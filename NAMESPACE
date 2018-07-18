@@ -1,0 +1,12 @@
+exportPattern("^[[:alpha:]]+")
+import('ProfileLikelihood')
+import('sandwich')
+import('foreach')
+import('doParallel')
+importFrom(foreach,"%dopar%")
+importFrom(foreach,"foreach")
+importFrom(doParallel, "registerDoParallel")
+importFrom("graphics", "abline", "legend", "par", "plot", "points",
+             "segments", "text")
+importFrom("stats", "as.formula", "glm", "na.omit", "vcov")
+
