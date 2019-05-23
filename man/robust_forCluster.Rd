@@ -12,12 +12,12 @@ The robust function computes an adjustment that is applied to the likelihood fun
 robust_forCluster(formula, data, family)
 }
 \arguments{
-  \item{formula}{a formula specifying the response and possible covariates to keep in the output data frame. This is directly obtained from the \code{evian_linear} or \code{evian_logistic} function.}
+  \item{formula}{a formula specifying the response and possible covariates to keep in the output data frame. This is directly obtained from the \code{evian}function.}
   \item{data}{data frame; from the output of \code{subsetData}.}
-  \item{family}{string; the link function for \code{glm}. Currently this only supported linear and logistic.}
+  \item{family}{string; the link function for \code{glm}.}
 }
 \details{
-The robust function is called from within \code{evian_logit} or \code{evian_linear} functions. It computes a robust adjustment factor that is
+The robust function is called from within \code{evian} functions. It computes a robust adjustment factor that is
 applied to the likelihood function to account for the cluster nature of the data. The family ID column (FID) specifies the clusters. The robust adjustment factor is the ratio of the regular variance estimator of the maximum likelihood estimate (MLE) to the sandwich variance estimator of the MLE, where the `meat' of the sandwich variance estimator is corrected for clustering in the data (Blume et.al, 2007).
 If the data is not clustered (i.e. the observations are independent) then the adjustment factor can still be applied to make the working model robust to possible model misspecifications (Royall and Tsou, 2003).
 }

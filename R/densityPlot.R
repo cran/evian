@@ -1,4 +1,4 @@
-densityPlot = function(dList,snpName,kcut=NULL,pl='linear',xlim=NULL,color=c('red','orange','green','blue'),round=2){
+densityPlot = function(dList,snpName,kcut=NULL,pl='linear',xlim=NULL,color=c('red','orange','green','blue'),round=2,legend_cex=1){
   snpRowIndex=which(do.call(rbind,dList[,'SummaryStats'])$SNP==snpName)
   dataToPlot=dList[snpRowIndex,]
   if (pl=='logit'){ xlab='Odds Ratio';nullLine=1} else {xlab='Beta'; nullLine=0}
@@ -21,7 +21,7 @@ densityPlot = function(dList,snpName,kcut=NULL,pl='linear',xlim=NULL,color=c('re
   mle=round(dataToPlot$SummaryStats$mle,round)
   if (mle > nullLine){posLegend='topleft';pos=loBound+0.1} else {posLegend='topright';pos=hiBound-0.1}
   # write out the legend and some summary stats
-  legend(posLegend,legend=cutoffVector,col = colorVector,lty=1,cex=0.8)
+  legend(posLegend,legend=cutoffVector,col = colorVector,lty=1,cex=legend_cex)
   text(pos,0.8,paste0('MLE at ',mle))
   text(pos,0.75,paste0('Max LR is ',round(dataToPlot$SummaryStats$maxlr,round)))
   #output robustFactor if it is not 1

@@ -12,12 +12,12 @@
   getGridBound(formula,data,bse,k,m,family,robust)
 }
 \arguments{
-  \item{formula}{a formula specifying the response and possible covariates to keep in the output dataframe. This is directly obtained from \code{\link{evian_linear}} or the \code{\link{evian_logit}} function.}
+  \item{formula}{a formula specifying the response and possible covariates to keep in the output dataframe. This is directly obtained from \code{\link{evian}} function.}
   \item{data}{a data frame inputted from the output of \code{\link{subsetData}}.}
-  \item{bse}{numeric. The number of beta standard errors to utilize in constraining the beta grid limits. Passed down from argument \code{bse} in the main \code{\link{evian_linear}} or \code{\link{evian_logit}} function.}
-  \item{k}{numeric vector. The strength of evidence criterion k. Passed down from argument \code{kcutoff} in the main \code{\link{evian_linear}} or \code{\link{evian_logit}} function.}
-  \item{m}{numeric. The density of the grid at which to compute the standardized likelihood function. Passed down from argument \code{m} in the main \code{\link{evian_linear}} or \code{\link{evian_logit}} function.}
-  \item{family}{a string representing the link function for \code{ProfileLikelihood::ProfileLikelihood.glm}. Currently only supports linear (`gaussian') and logistic (`binary').}
+  \item{bse}{numeric. The number of beta standard errors to utilize in constraining the beta grid limits. Passed down from argument \code{bse} in the main \code{\link{evian}} function.}
+  \item{k}{numeric vector. The strength of evidence criterion k. Passed down from argument \code{kcutoff} in the main \code{\link{evian}} function.}
+  \item{m}{numeric. The density of the grid at which to compute the standardized likelihood function. Passed down from argument \code{m} in the main \code{\link{evian}} function.}
+  \item{family}{a string representing the link function for \code{ProfileLikelihood::ProfileLikelihood.glm}.}
   \item{robust}{A numeric value, robust correction factor.}
 }
 \details{

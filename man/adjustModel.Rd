@@ -11,7 +11,7 @@
   \item{model}{The model specified. Must be a string from one of the following: \code{additive}, \code{dominant}, \code{recessive}, or \code{overdominance}}
 }
 \details{
-  \code{adjustModel} is an interior function that adjusts the genotype coding based on the genetic model specified. The coding scheme for different genetic models can be found in \code{\link{calculateLinearMLE}}.
+  \code{adjustModel} is an interior function that adjusts the genotype coding based on the genetic model specified. The coding scheme for different genetic models can be found in \code{\link{calculateEvianMLE}}.
 }
 \value{
 This function returns the data frame with the same columns but changed genotype coding based on the genetic model specified.

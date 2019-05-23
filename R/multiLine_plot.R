@@ -1,6 +1,6 @@
 multiLine_plot <-
-  function (bpstart=0, bpend=1000000000, dList,  title="My model", showmaxlr=3, kcut=NULL, pl='linear'
-            ,ylim=c(-0.5,10),color=c('violet','green','red','blue'),markSNP=NULL,round=2)
+  function (bpstart=0, bpend=1000000000, dList,  title=NULL, showmaxlr=3, kcut=NULL, pl='linear'
+            ,ylim=c(-0.5,10),color=c('violet','green','red','blue'),markSNP=NULL,round=2,legend_cex=1)
   {
     #dList need to be a list with at least one column named 'SummaryStats'
     # In this column should also be a list that contains at least the following columns: (and in such order)
@@ -45,10 +45,10 @@ multiLine_plot <-
     # plot all in grey and don't mark them
     num_of_hits = nrow(signAtKcutoff)
       if (num_of_hits>0 & is.null(markSNP)){
-        text(signAtKcutoff$bp,signAtKcutoff[,ncol(signAtKcutoff)],signAtKcutoff$snp,srt=90,pos=4,offset=0.3,cex=0.75)
+        text(signAtKcutoff$bp,signAtKcutoff[,ncol(signAtKcutoff)],signAtKcutoff$SNP,srt=90,pos=4,offset=0.3,cex=0.75)
       } else if (!is.null(markSNP)) {
-        snpIndex=which(dframe_inRange$snp %in% markSNP)
-        text(dframe_inRange$bp[snpIndex],dframe_inRange[snpIndex,ncol(dframe_inRange)],dframe_inRange$snp[snpIndex],srt=90,pos=4,offset=0.3,cex=0.75)
+        snpIndex=which(dframe_inRange$SNP %in% markSNP)
+        text(dframe_inRange$bp[snpIndex],dframe_inRange[snpIndex,ncol(dframe_inRange)],dframe_inRange$SNP[snpIndex],srt=90,pos=4,offset=0.3,cex=0.75)
       }
 
 
@@ -61,8 +61,8 @@ multiLine_plot <-
         hit = paste ("max LR =", round(signAtKcutoff$maxlr[i],round), "at", signAtKcutoff$snp[i], "(", signAtKcutoff$bp[i] ,")")
         legend.txt2 = c(legend.txt2, hit)
       }
-      legend("topright",8,legend.txt2,col=par("col"),lty=0,bty="n")
+      legend("topright",8,legend.txt2,col=par("col"),lty=0,bty="n",cex=legend_cex)
     }
-    legend("topleft",legend_txt,col=c("grey",color),lty=c(1.5),bty="n")
+    legend("topleft",legend_txt,col=c("grey",color),lty=c(1.5),bty="n",cex=legend_cex)
 
   }
